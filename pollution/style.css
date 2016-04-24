@@ -1,0 +1,860 @@
+ 
+	@import http://fonts.googleapis.com/css?family=Raleway;
+	/*----------------------------------------------
+	CSS Settings For HTML Div ExactCenter
+	------------------------------------------------*/
+
+@media screen and (min-width:1px){
+	
+	body{
+	/*background-color:#99b4ff;*/
+	background-image: url("Avatar/background.jpg");
+	}
+
+	#main {
+	width:760px;
+	margin-top:2%;
+	font-family:raleway;
+
+	}
+	#adminPic{
+	clear: both;
+	float:left;
+	margin-left:3em;
+	}
+
+	span {
+	color:red
+	}
+	h2 {
+	background-color:#FEFFED;
+	text-align:center;
+	border-radius:10px 10px 0 0;
+	margin:-10px -40px;
+	padding:15px
+	}
+	hr {
+	border:0;
+	border-bottom:1px solid #ccc;
+	margin:10px -40px;
+	margin-bottom:30px
+	}
+	
+	#login {
+	clear: both;
+	background-color:#FFF;
+	width:12em;
+	float:left;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 40px 25px;
+	margin-left:2em;
+	margin-top:3em;
+	}
+
+
+
+	input[type=text],input[type=password] {
+	width:99.5%;
+	padding:10px;
+	margin-top:8px;
+	border:1px solid #ccc;
+	padding-left:5px;
+	font-size:16px;
+	font-family:raleway
+	}
+	input[type=submit] {
+	width:100%;
+	background-color:#4c7cff;
+	color:#FFF;
+	margin-top:3%;
+	border:2px solid #FFF;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	margin-bottom:15px
+	}
+
+	button{
+	width:100%;
+	background-color:#4c7cff;
+	color:#FFF;
+	margin-top:3%;
+	border:2px solid #FFF;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	margin-bottom:15px;
+	}
+
+	#refreshBut{
+	width:100%;
+	background-color:#FCAC3A;
+	/*background-color:#4c7cff;*/
+	color:#FFF;
+	margin-top:0%;
+	border:2px solid #FFF;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	float:right;
+
+	}
+
+	#refresh{
+	clear: both;
+	float:left;
+	margin-top:1em;
+	margin-left:7em;
+	width:45%;
+	height:5%;
+	/*margin-right:14%;
+	margin-top:3%;*/
+	}
+
+	#profile {
+	padding:10px;
+	border:1px dashed grey;
+	font-size:20px;
+	background-color:#FFF;
+	}
+	#logout {
+	float:right;
+	padding:5px;
+	clear: both;
+	}
+	a {
+	text-decoration:none;
+	color:#6495ed
+	}
+	i {
+	color:#6495ed
+	}
+
+	#urlAdd {
+	clear: both;
+	background-color:#FFF;
+	width:48%;
+	float:left;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 80px 25px;
+	margin-left:1em;
+	margin-top:1em;
+	/*margin-right:10%;
+	margin-top:-15%;*/
+	}
+
+	#systemMsg{
+	overflow:auto;
+	clear: both;
+	background-color:#FFF;
+	width:48%;
+	height:7em;
+	float:left;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 80px 25px;
+	margin-left:1em;
+	margin-top:1em;
+	/*margin-right:10%;
+	margin-left:55%;
+	margin-top:-25%;*/
+	}
+
+	#pages {
+	
+	overflow:auto;
+	clear: both;
+	background-color:#FFF;
+	width:15em;
+	height:16em;
+	float:left;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 40px 25px;
+	margin-left:2em;
+	margin-top:3em;
+	/*margin-left:5%;
+	margin-top:5%;*/
+	}
+
+	.myDiv{
+	color:blue;
+	margin-left:5em;
+	margin-top:-2em;
+	}
+	
+	#msgIcon{
+	margin-left:1em;
+	margin-top:1em;
+	width:2em;
+	height:2em;
+	}
+	
+	#mainIcon{
+	clear: both;
+	float:left;
+	margin-left:0em;
+	margin-top:-3em;
+	width:20em;
+	height:20em;
+	}
+
+	.rowH4{
+	margin-left:28%;
+	margin-top:-25%;
+	font-size:1em;
+	width:70%;
+	}
+
+	.minus{
+	width:10%;
+	height:1%;
+	float:right;
+	margin-right:-2em;
+	margin-top:-5em;
+	}
+
+	.avatar{
+	width:25%;
+	height:5%;
+	margin-left:-1em;
+	}
+
+}
+
+
+@media screen and (min-width: 451px) {
+
+	body{
+	/*background-color:#99b4ff;*/
+	background-image: url("Avatar/background.jpg");
+	}
+
+	#main {
+	width:760px;
+	margin-top:2%;
+	font-family:raleway;
+
+	}
+	#adminPic{
+	clear: both;
+	float:left;
+	margin-left:3em;
+	}
+
+	span {
+	color:red
+	}
+	h2 {
+	background-color:#FEFFED;
+	text-align:center;
+	border-radius:10px 10px 0 0;
+	margin:-10px -40px;
+	padding:15px
+	}
+	hr {
+	border:0;
+	border-bottom:1px solid #ccc;
+	margin:10px -40px;
+	margin-bottom:30px
+	}
+	
+	#login {
+	clear: both;
+	background-color:#FFF;
+	width:12em;
+	float:left;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 40px 25px;
+	margin-left:2em;
+	margin-top:3em;
+	}
+
+
+
+	input[type=text],input[type=password] {
+	width:99.5%;
+	padding:10px;
+	margin-top:8px;
+	border:1px solid #ccc;
+	padding-left:5px;
+	font-size:16px;
+	font-family:raleway
+	}
+	input[type=submit] {
+	width:100%;
+	background-color:#4c7cff;
+	color:#FFF;
+	margin-top:3%;
+	border:2px solid #FFF;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	margin-bottom:15px
+	}
+
+	button{
+	width:100%;
+	background-color:#4c7cff;
+	color:#FFF;
+	margin-top:3%;
+	border:2px solid #FFF;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	margin-bottom:15px;
+	}
+
+	#refreshBut{
+	width:100%;
+	background-color:#FCAC3A;
+	/*background-color:#4c7cff;*/
+	color:#FFF;
+	margin-top:0%;
+	border:2px solid #FFF;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	float:right;
+
+	}
+
+	#refresh{
+	clear: both;
+	float:left;
+	margin-top:1em;
+	margin-left:7em;
+	width:45%;
+	height:5%;
+	/*margin-right:14%;
+	margin-top:3%;*/
+	}
+
+	#profile {
+	padding:10px;
+	border:1px dashed grey;
+	font-size:20px;
+	background-color:#FFF;
+	}
+	#logout {
+	float:right;
+	padding:5px;
+	clear: both;
+	}
+	a {
+	text-decoration:none;
+	color:#6495ed
+	}
+	i {
+	color:#6495ed
+	}
+
+	#urlAdd {
+	clear: both;
+	background-color:#FFF;
+	width:48%;
+	float:left;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 80px 25px;
+	margin-left:1em;
+	margin-top:1em;
+	/*margin-right:10%;
+	margin-top:-15%;*/
+	}
+
+	#systemMsg{
+	overflow:auto;
+	clear: both;
+	background-color:#FFF;
+	width:48%;
+	height:7em;
+	float:left;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 80px 25px;
+	margin-left:1em;
+	margin-top:1em;
+	/*margin-right:10%;
+	margin-left:55%;
+	margin-top:-25%;*/
+	}
+
+	#pages {
+	
+	overflow:auto;
+	clear: both;
+	background-color:#FFF;
+	width:15em;
+	height:16em;
+	float:left;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 40px 25px;
+	margin-left:2em;
+	margin-top:3em;
+	/*margin-left:5%;
+	margin-top:5%;*/
+	}
+
+
+	.rowH4{
+	margin-left:28%;
+	margin-top:-25%;
+	font-size:1em;
+	width:70%;
+	}
+
+	.minus{
+	width:10%;
+	height:1%;
+	float:right;
+	margin-right:-2em;
+	margin-top:-5em;
+	}
+
+	.avatar{
+	width:25%;
+	height:5%;
+	margin-left:-1em;
+	}
+
+}
+
+@media screen and (min-width: 728px) { 
+
+	body{
+	/*background-color:#99b4ff;*/
+	background-image: url("Avatar/background.jpg");
+	}
+
+	#main {
+	width:760px;
+	margin-top:2%;
+	font-family:raleway;
+
+	}
+	#adminPic{
+	clear: both;
+	float:left;
+	margin-left:17em;
+	}
+
+	span {
+	color:red
+	}
+	h2 {
+	background-color:#FEFFED;
+	text-align:center;
+	border-radius:10px 10px 0 0;
+	margin:-10px -40px;
+	padding:15px
+	}
+	hr {
+	border:0;
+	border-bottom:1px solid #ccc;
+	margin:10px -40px;
+	margin-bottom:30px
+	}
+	
+	#login {
+	clear: both;
+	background-color:#FFF;
+	width:300px;
+	float:left;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 40px 25px;
+	margin-left:12em;
+	margin-top:3em;
+	}
+
+
+
+	input[type=text],input[type=password] {
+	width:99.5%;
+	padding:10px;
+	margin-top:8px;
+	border:1px solid #ccc;
+	padding-left:5px;
+	font-size:16px;
+	font-family:raleway
+	}
+	input[type=submit] {
+	width:100%;
+	background-color:#4c7cff;
+	color:#FFF;
+	margin-top:3%;
+	border:2px solid #FFF;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	margin-bottom:15px
+	}
+
+	button{
+	width:100%;
+	background-color:#4c7cff;
+	color:#FFF;
+	margin-top:3%;
+	border:2px solid #FFF;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	margin-bottom:15px;
+	}
+
+	#refreshBut{
+	width:100%;
+	background-color:#FCAC3A;
+	/*background-color:#4c7cff;*/
+	color:#FFF;
+	margin-top:0%;
+	border:2px solid #FFF;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	float:right;
+
+	}
+
+	#refresh{
+	clear: both;
+	float:right;
+	margin-top:1em;
+	margin-right:5em;
+	width:30%;
+	height:5%;
+	/*margin-right:14%;
+	margin-top:3%;*/
+	}
+
+	#profile {
+	padding:10px;
+	border:1px dashed grey;
+	font-size:20px;
+	background-color:#FFF;
+	}
+	#logout {
+	float:right;
+	padding:5px;
+	clear: both;
+	}
+	a {
+	text-decoration:none;
+	color:#6495ed
+	}
+	i {
+	color:#6495ed
+	}
+
+	#urlAdd {
+	clear: both;
+	background-color:#FFF;
+	width:25%;
+	float:right;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 80px 25px;
+	margin-right:1em;
+	margin-top:-12em;
+	/*margin-right:10%;
+	margin-top:-15%;*/
+	}
+
+	#systemMsg{
+	clear: both;
+	background-color:#FFF;
+	width:25%;
+	height:70px;
+	float:right;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 80px 25px;
+	margin-right:1em;
+	margin-top:-21em;
+	/*margin-right:10%;
+	margin-left:55%;
+	margin-top:-25%;*/
+	}
+
+	#pages {
+	overflow:auto;
+	clear: both;
+	background-color:#FFF;
+	width:30%;
+	height:300px;
+	float:left;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 40px 25px;
+	margin-left:1em;
+	margin-top:3em;
+	/*margin-left:5%;
+	margin-top:5%;*/
+	}
+
+
+	.rowH4{
+	margin-left:28%;
+	margin-top:-25%;
+	font-size:1em;
+	width:70%;
+	}
+
+	.minus{
+	width:10%;
+	height:1%;
+	float:right;
+	margin-right:-2em;
+	margin-top:-5em;
+	}
+
+	.avatar{
+	width:25%;
+	height:5%;
+	margin-left:-1em;
+	}
+
+}
+@media screen and (min-width: 1357px) { }
+@media screen and (min-width: 1024px) {
+	body{
+	/*background-color:#99b4ff;*/
+	background-image: url("Avatar/background.jpg");
+	}
+
+	#main {
+	width:960px;
+	margin-top:2%;
+	font-family:raleway;
+
+	}
+	#adminPic{
+	margin-left:55%;
+	}
+
+	span {
+	color:red
+	}
+	h2 {
+	background-color:#FEFFED;
+	text-align:center;
+	border-radius:10px 10px 0 0;
+	margin:-10px -40px;
+	padding:15px
+	}
+	hr {
+	border:0;
+	border-bottom:1px solid #ccc;
+	margin:10px -40px;
+	margin-bottom:30px
+	}
+	#login {
+	background-color:#FFF;
+	width:300px;
+	float:left;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 40px 25px;
+	margin-left:49%;
+	margin-top:2%;
+	}
+
+
+
+	input[type=text],input[type=password] {
+	width:99.5%;
+	padding:10px;
+	margin-top:8px;
+	border:1px solid #ccc;
+	padding-left:5px;
+	font-size:16px;
+	font-family:raleway
+	}
+	input[type=submit] {
+	width:100%;
+	background-color:#4c7cff;
+	color:#FFF;
+	margin-top:3%;
+	border:2px solid #FFF;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	margin-bottom:15px
+	}
+
+	button{
+	width:100%;
+	background-color:#4c7cff;
+	color:#FFF;
+	margin-top:3%;
+	border:2px solid #FFF;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	margin-bottom:15px;
+	}
+
+	#refreshBut{
+	width:100%;
+	background-color:#FCAC3A;
+	/*background-color:#4c7cff;*/
+	color:#FFF;
+	margin-top:0%;
+	border:2px solid #FFF;
+	padding:10px;
+	font-size:20px;
+	cursor:pointer;
+	border-radius:5px;
+	float:right;
+
+	}
+
+	#refresh{
+	clear: both;
+	float:right;
+	margin-top:-10em;
+	margin-right:12em;
+	width:30%;
+	height:5%;
+	/*margin-right:14%;
+	margin-top:3%;*/
+	}
+
+	#profile {
+	padding:10px;
+	border:1px dashed grey;
+	font-size:20px;
+	background-color:#FFF;
+	}
+	#logout {
+	float:right;
+	padding:5px;
+	clear: both;
+	}
+	a {
+	text-decoration:none;
+	color:#6495ed
+	}
+	i {
+	color:#6495ed
+	}
+
+	#urlAdd {
+	clear: both;
+	background-color:#FFF;
+	width:25%;
+	float:right;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 80px 25px;
+	margin-right:9em;
+	margin-top:-10em;
+	/*margin-right:10%;
+	margin-top:-15%;*/
+	}
+
+	#systemMsg{
+	clear: both;
+	background-color:#FFF;
+	width:25%;
+	height:7em;
+	float:right;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 80px 25px;
+	margin-right:9em;
+	margin-top:-21em;
+	/*margin-right:10%;
+	margin-left:55%;
+	margin-top:-25%;*/
+	}
+
+	#pages {
+	overflow:auto;
+	clear: both;
+	background-color:#FFF;
+	width:25%;
+	height:300px;
+	float:left;
+	border-radius:10px;
+	font-family:raleway;
+	border:2px solid #ccc;
+	padding:10px 40px 25px;
+	margin-left:5em;
+	margin-top:5em;
+	/*margin-left:5%;
+	margin-top:5%;*/
+	}
+
+	.myDiv{
+	color:blue;
+	margin-left:5em;
+	margin-top:-2em;
+	}
+	
+	#msgIcon{
+	margin-left:1em;
+	margin-top:1em;
+	width:2em;
+	height:2em;
+	}
+	
+	#mainIcon{
+	clear: both;
+	float:left;
+	margin-left:7em;
+	margin-top:-8em;
+	width:20em;
+	height:20em;
+	}
+	
+	.rowH4{
+	margin-left:28%;
+	margin-top:-25%;
+	width:60%;
+	}
+
+	.minus{
+	width:10%;
+	height:1%;
+	float:right;
+	margin-left:0%;
+	margin-top:-22%;
+	}
+
+	.avatar{
+	width:25%;
+	height:5%;
+	}
+}
