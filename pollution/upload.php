@@ -16,7 +16,7 @@ $mysql_con->query ('SET COLLATION_CONNECTION=utf8_general_ci');
 */
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
-    
+
         $uploadOk = 1;
     }
 
@@ -32,17 +32,17 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-		
-		
-		$databasehost = "localhost"; 
-$databasename = "pollution"; 
-$databasetable = "dirt"; 
-$databaseusername="root"; 
-$databasepassword = ""; 
-$fieldseparator = ","; 
+
+
+$databasehost = "localhost";
+$databasename = "pollution";
+$databasetable = "dirt";
+$databaseusername="root";
+$databasepassword = "";
+$fieldseparator = ",";
 $lineseparator = "\n";
 try {
-    $pdo = new PDO("mysql:host=$databasehost;dbname=$databasename", 
+    $pdo = new PDO("mysql:host=$databasehost;dbname=$databasename",
         $databaseusername, $databasepassword,
         array(
             PDO::MYSQL_ATTR_LOCAL_INFILE => true,
@@ -59,11 +59,10 @@ $affectedRows = $pdo->exec("
       LINES TERMINATED BY ".$pdo->quote($lineseparator));
 
 echo "Loaded a total of $affectedRows records from this csv file.\n";
-      
-		
+
+
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
 }
-
 ?>
