@@ -53,12 +53,36 @@ try {
     die("database connection failed: ".$e->getMessage());
 }
 
-$affectedRows = $pdo->exec("
+$file= file_get_contents($target_file);
+$rows= explode($lineseparator, $file);
+foreach ($rows as $key => $row) {
+  $fields = explode($fieldseparator, $row);
+  $fields[0] = implode('',explode('"', $fields[0]));
+  $dateshards = explode("-",$fields[0]);
+  $newdate = $dateshards[2].'-'.$dateshards[1].'-'.$dateshards[0];
+  $fields[0] = '"'.$newdate.'"';
+  $qs = "insert into $databasetable (dmy,h1,h2,h3,h4,h5,h6,h7,h8,h9,h10,h11,h12,h13,h14,h15,h16,h17,h18,h19,h20,h21,h22,h23,h24) values (".implode(',',$fields).")";
+  echo $qs;
+  if(count($fields)!=25)continue;
+  $pdo->exec($qs);
+}
+
+/*create new column for the sum of the day
+$sqlexec= "select (h1";
+for ($i=2; $i <=24 ; $i++) {
+  $sqlexec.="+h$i";
+}
+$sqlexec .= ") from dirt";
+$sum = $pdo->exec($sqlexec);
+$sql = "update dirt set sum = '$sum' where sum is null";
+$createcol = $pdo->exec($sql);
+
+/*$affectedRows = $pdo->exec("
     LOAD DATA LOCAL INFILE ".$pdo->quote($target_file)." INTO TABLE $databasetable
       FIELDS TERMINATED BY ".$pdo->quote($fieldseparator)."
       LINES TERMINATED BY ".$pdo->quote($lineseparator));
-
-echo "Loaded a total of $affectedRows records from this csv file.\n";
+*/
+echo "Loaded a total of ".count($rows)." records from this csv file.\n";
 
 
     } else {

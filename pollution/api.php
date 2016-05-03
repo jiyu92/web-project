@@ -46,7 +46,9 @@ switch ($method) {
 $typeofdirt=$_GET['type_of_dirt'];
 $stationid=$_GET['station_id'];
 $hour='h'.$_GET['hour'];
-$date='"'.$_GET['date'].'"';
+$date=$_GET['date'];
+$month='-'.$_GET['month'].'-';//den anagnwrizei oti milame gia mhna xwris tis paules
+$year=$_GET['year'].'-';
 
 //create sql for each request on the API
 if ($_GET['action']=='show_pollution'){
@@ -56,23 +58,41 @@ if ($_GET['action']=='show_pollution'){
 elseif ($_GET['action']=='show_station'){
   $sql = "select * from station";
 }
+elseif($_GET['action']=='show_stats'){
+  $sql = "select avg(dirt.h1";
+  for ($i=2; $i <=24 ; $i++) {
+      $sql.="+dirt.h$i";
+  }
+  $sql .= ")/24 as avarage,location from station inner join dirt on station.id=dirt.station_id where id='$stationid' and dirt.name='$typeofdirt' and
+  (dirt.dmy='$date' or dirt.dmy like '$year%' or dirt.dmy like '%$month%')";
+
+  $sql2 = "select std(dirt.h1";
+  for ($j=2; $j <=24 ; $j++) {
+      $sql2.="+dirt.h$j";
+  }
+  $sql2 .= ") as standard_dev,location from station inner join dirt on station.id=dirt.station_id where id='$stationid' and dirt.name='$typeofdirt' and
+  (dirt.dmy='$date' or dirt.dmy like '$year%' or dirt.dmy like '%$month%')";
+}
 else{
   echo "ton hpiame";
 };
+//echo $sql2;
 // excecute SQL statement
 $result = mysqli_query($link,$sql);
-
+$result2 =  mysqli_query($link,$sql2);
 
 // die if SQL statement failed
 if (!$result) {
   http_response_code(404);
-  die(mysqli_error());
+  die(mysqli_error($link));
 }
-
+echo "[";
 // print results, insert id or affected row count
 for ($i=0;$i<mysqli_num_rows($result);$i++) {
-    echo ($i>0?',':'').json_encode(mysqli_fetch_object($result));
+    echo ($i>0?',':'').json_encode(mysqli_fetch_object($result)).",";
+    echo ($i>0?',':'').json_encode(mysqli_fetch_object($result2));
   }
+  echo "]";
 
 // close mysql connection
 mysqli_close($link);
