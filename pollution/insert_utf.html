@@ -5,6 +5,8 @@
 <title>In - MySQL</title>
 <link rel="shortcut icon" href="pol.jpg">
 <link href="style.css" rel="stylesheet" type="text/css">
+<script src="jquery.js"></script>
+<script src="main.js"></script>
 
 </head>
 
@@ -12,7 +14,7 @@
 
 <title>Insert station</title>
 
-<form method="POST" action="insert_utf.php">
+<form method="GET" action="insert_utf.php">
 	<img id="msgIcon" src="ins.jpg" style="width:25%;height:15%;"/>
 	<h2>Εισαγωγή σταθμού</h2>
      <link href="style.css" rel="stylesheet" type="text/css">
@@ -20,9 +22,8 @@
 	<p>Name: <input type="text" name="name" size="20">
 	<p>Location: <input type="text" name="location" size="20">
 	<p>id: <input type="text" name="id" size="20">
-
-
 	<p><input type="submit" value="Insert!" name="B1"></p>
+	<input type="hidden" name="action" value="insert_station">
 </form>
 
 <title>upload file</title>
@@ -37,7 +38,7 @@
     <input type="submit" value="Upload File" name="submit">
 </form>
 
-<form method="post" action="update.php">
+<form method="GET" action="update.php">
 	<h2>Εισαγωγή Ρύπου</h2>
      <link href="style.css" rel="stylesheet" type="text/css">
 
@@ -46,12 +47,13 @@
 
 
 	<p><input type="submit" value="Insert!" name="B1"></p>
+	<input type="hidden" name="action" value="update">
 </form>
 
 <title>delete station</title>
 <link rel="shortcut icon" href="del.jpg" style="width:25%;height:15%;">
 <link href="style.css" rel="stylesheet" type="text/css">
-<form method="POST" action="delete_utf.php">
+<form method="GET" action="delete_utf.php">
 
 	<img id="msgIcon" src="del.jpg" size="20" style="width:25%;height:15%;"/>
 	<h2>Διαγραφή σταθμού</h2>
@@ -59,6 +61,7 @@
 
 	<p>id: <input type="text" name="id" size="20">
 	<p><input type="submit" value="Delete!" name="B1"></p>
+	<input type="hidden" name="action" value="delete_station">
 </form>
 
 </body>
