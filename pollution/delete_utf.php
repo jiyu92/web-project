@@ -1,11 +1,3 @@
-<html>
-<head>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<title>Pollution Calculator | Admin Panel</title>
-<link rel="shortcut icon" href="pol.jpg"> 
-<link href="style.css" rel="stylesheet" type="text/css">
-
-</head>
 <?php
 
 $db_server["host"] = "localhost"; //database server
@@ -18,8 +10,8 @@ $mysql_con->query ('SET CHARACTER SET utf8');
 $mysql_con->query ('SET COLLATION_CONNECTION=utf8_general_ci');
 
 
-$id = $_POST['id']	;
-$my_query = "DELETE from station WHERE id = '$id' ";//pws paizei 
+$id = $_GET['id']	;
+$my_query = "DELETE from station WHERE id = '$id' ";//pws paizei
 
 
 
@@ -29,8 +21,8 @@ if (!$result)
 	die('Invalid query: ' . $mysql_con->error);
 else
 	echo "Updated records: ".$mysql_con->affected_rows;
-	
-echo "<p><b>The last id: ".$mysql_con->insert_id."</b></p>";
+
+echo "The last id: ".$mysql_con->insert_id;
 
 //$mysql_con->close;
 

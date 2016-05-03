@@ -62,7 +62,7 @@ foreach ($rows as $key => $row) {
   $newdate = $dateshards[2].'-'.$dateshards[1].'-'.$dateshards[0];
   $fields[0] = '"'.$newdate.'"';
   $qs = "insert into $databasetable (dmy,h1,h2,h3,h4,h5,h6,h7,h8,h9,h10,h11,h12,h13,h14,h15,h16,h17,h18,h19,h20,h21,h22,h23,h24) values (".implode(',',$fields).")";
-  echo $qs;
+  //echo $qs;
   if(count($fields)!=25)continue;
   $pdo->exec($qs);
 }
