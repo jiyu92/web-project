@@ -4,12 +4,12 @@ var API_TARGET_DELETE = "http://localhost/pollution/pollution/delete_utf.php"
 var API_TARGET_UPDATE = "http://localhost/pollution/pollution/update.php"*/
 
 var targetMap = {
-  show_stats: "http://localhost/pollution/pollution/api.php",
-  show_pollution: "http://localhost/pollution/pollution/api.php",
-  show_station: "http://localhost/pollution/pollution/api.php",
-  delete_station: "http://localhost/pollution/pollution/delete_utf.php",
-  insert_station: "http://localhost/pollution/pollution/insert_utf.php",
-  update: "http://localhost/pollution/pollution/update.php"
+  show_stats: "http://localhost/web-project/pollution/api.php",
+  show_pollution: "http://localhost/web-project/pollution/api.php",
+  show_station: "http://localhost/web-project/pollution/api.php",
+  delete_station: "http://localhost/web-project/pollution/delete_utf.php",
+  insert_station: "http://localhost/web-project/pollution/insert_utf.php",
+  update: "http://localhost/web-project/pollution/update.php"
 };
 
 // When the window finishes loading, execute the main function.
