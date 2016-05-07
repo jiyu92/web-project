@@ -9,7 +9,10 @@ var targetMap = {
   show_station: "http://localhost/web-project/pollution/api.php",
   delete_station: "http://localhost/web-project/pollution/delete_utf.php",
   insert_station: "http://localhost/web-project/pollution/insert_utf.php",
-  update: "http://localhost/web-project/pollution/update.php"
+  update: "http://localhost/web-project/pollution/update.php",
+  registration: "http://localhost/web-project/pollution/registration.php",
+  login: "http://localhost/web-project/pollution/login_user.php",
+  create_db: "http://localhost/web-project/pollution/create_db.php"
 };
 
 // When the window finishes loading, execute the main function.

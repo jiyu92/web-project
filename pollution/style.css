@@ -1,11 +1,11 @@
- 
+
 	@import http://fonts.googleapis.com/css?family=Raleway;
 	/*----------------------------------------------
 	CSS Settings For HTML Div ExactCenter
 	------------------------------------------------*/
 
 @media screen and (min-width:1px){
-	
+
 	body{
 	/*background-color:#99b4ff;*/
 	background-image: url("Avatar/background.jpg");
@@ -39,7 +39,7 @@
 	margin:10px -40px;
 	margin-bottom:30px
 	}
-	
+
 	#login {
 	clear: both;
 	background-color:#FFF;
@@ -56,7 +56,7 @@
 
 
 	input[type=text],input[type=password] {
-	width:99.5%;
+	width:40%;
 	padding:10px;
 	margin-top:8px;
 	border:1px solid #ccc;
@@ -65,7 +65,7 @@
 	font-family:raleway
 	}
 	input[type=submit] {
-	width:100%;
+	width:10%;
 	background-color:#4c7cff;
 	color:#FFF;
 	margin-top:3%;
@@ -78,7 +78,7 @@
 	}
 
 	button{
-	width:100%;
+	width:10%;
 	background-color:#4c7cff;
 	color:#FFF;
 	margin-top:3%;
@@ -169,7 +169,7 @@
 	}
 
 	#pages {
-	
+
 	overflow:auto;
 	clear: both;
 	background-color:#FFF;
@@ -191,14 +191,14 @@
 	margin-left:5em;
 	margin-top:-2em;
 	}
-	
+
 	#msgIcon{
 	margin-left:1em;
 	margin-top:1em;
 	width:2em;
 	height:2em;
 	}
-	
+
 	#mainIcon{
 	clear: both;
 	float:left;
@@ -267,7 +267,7 @@
 	margin:10px -40px;
 	margin-bottom:30px
 	}
-	
+
 	#login {
 	clear: both;
 	background-color:#FFF;
@@ -397,7 +397,7 @@
 	}
 
 	#pages {
-	
+
 	overflow:auto;
 	clear: both;
 	background-color:#FFF;
@@ -438,7 +438,7 @@
 
 }
 
-@media screen and (min-width: 728px) { 
+@media screen and (min-width: 728px) {
 
 	body{
 	/*background-color:#99b4ff;*/
@@ -473,7 +473,7 @@
 	margin:10px -40px;
 	margin-bottom:30px
 	}
-	
+
 	#login {
 	clear: both;
 	background-color:#FFF;
@@ -822,14 +822,14 @@
 	margin-left:5em;
 	margin-top:-2em;
 	}
-	
+
 	#msgIcon{
 	margin-left:1em;
 	margin-top:1em;
 	width:2em;
 	height:2em;
 	}
-	
+
 	#mainIcon{
 	clear: both;
 	float:left;
@@ -838,7 +838,7 @@
 	width:20em;
 	height:20em;
 	}
-	
+
 	.rowH4{
 	margin-left:28%;
 	margin-top:-25%;

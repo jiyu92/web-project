@@ -1,4 +1,5 @@
 ﻿<?php
+include 'connection.php';
 error_reporting(0);//na mhn mas prizei ta oumpala me ta warnings
  //$input = json_decode(file_get_contents('php://input'),true);
 
@@ -7,19 +8,19 @@ $method = $_SERVER['REQUEST_METHOD'];
 $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
 $input = json_decode(file_get_contents('php://input'),true);
 
-// connect to the mysql database
-$link = mysqli_connect('localhost', 'root', '', 'pollution');
-mysqli_set_charset($link,'utf8');
-
+/* connect to the mysql database
+$conn = mysqli_connect('localhost', 'root', '', 'pollution');
+mysqli_set_charset($conn,'utf8');
+*/
 // retrieve the table and key from the path
 $table = preg_replace('/[^a-z0-9_]+/i','',array_shift($request));
 $key = array_shift($request)+0;
 
 // escape the columns and values from the input object
 $columns = preg_replace('/[^a-z0-9_]+/i','',array_keys($input));
-$values = array_map(function ($value) use ($link) {
+$values = array_map(function ($value) use ($conn) {
   if ($value===null) return null;
-  return mysqli_real_escape_string($link,(string)$value);
+  return mysqli_real_escape_string($conn,(string)$value);
 },array_values($input));
 
 // build the SET part of the SQL command
@@ -52,39 +53,64 @@ $year=$_GET['year'].'-';
 
 //create sql for each request on the API
 if ($_GET['action']=='show_pollution'){
-  $sql = "select location,$hour from station inner join dirt on station.id=dirt.station_id where id='$stationid' and dirt.name='$typeofdirt' and dirt.dmy='$date'";
-
+  if (!$stationid){
+    $sql = "select location,$hour from station inner join dirt on station.id=dirt.station_id where dirt.name='$typeofdirt'
+    and dirt.dmy='$date'";
+  }
+  else{
+    $sql = "select location,$hour from station inner join dirt on station.id=dirt.station_id where id='$stationid'
+    and dirt.name='$typeofdirt' and dirt.dmy='$date'";
+  }
 }
 elseif ($_GET['action']=='show_station'){
   $sql = "select * from station";
 }
 elseif($_GET['action']=='show_stats'){
-  $sql = "select avg(dirt.h1";
-  for ($i=2; $i <=24 ; $i++) {
-      $sql.="+dirt.h$i";
-  }
-  $sql .= ")/24 as avarage,location from station inner join dirt on station.id=dirt.station_id where id='$stationid' and dirt.name='$typeofdirt' and
-  (dirt.dmy='$date' or dirt.dmy like '$year%' or dirt.dmy like '%$month%')";
+  if (!$stationid){
+      $sql = "select avg(dirt.h1";
+      for ($i=2; $i <=24 ; $i++) {
+          $sql.="+dirt.h$i";
+      }
+      $sql .= ")/24 as avarage,location from station inner join dirt on station.id=dirt.station_id where dirt.name='$typeofdirt'
+      and (dirt.dmy='$date' or dirt.dmy like '$year%' or dirt.dmy like '%$month%')";
 
-  $sql2 = "select std(dirt.h1";
-  for ($j=2; $j <=24 ; $j++) {
-      $sql2.="+dirt.h$j";
+      $sql2 = "select std(dirt.h1";
+      for ($j=2; $j <=24 ; $j++) {
+          $sql2.="+dirt.h$j";
+      }
+      $sql2 .= ") as standard_dev,location from station inner join dirt on station.id=dirt.station_id where dirt.name='$typeofdirt'
+      and (dirt.dmy='$date' or dirt.dmy like '$year%' or dirt.dmy like '%$month%')";
   }
-  $sql2 .= ") as standard_dev,location from station inner join dirt on station.id=dirt.station_id where id='$stationid' and dirt.name='$typeofdirt' and
-  (dirt.dmy='$date' or dirt.dmy like '$year%' or dirt.dmy like '%$month%')";
+  else{
+    $sql = "select avg(dirt.h1";
+    for ($i=2; $i <=24 ; $i++) {
+        $sql.="+dirt.h$i";
+    }
+    $sql .= ")/24 as avarage,location from station inner join dirt on station.id=dirt.station_id where id='$stationid' and dirt.name='$typeofdirt' and
+    (dirt.dmy='$date' or dirt.dmy like '$year%' or dirt.dmy like '%$month%')";
+
+    $sql2 = "select std(dirt.h1";
+    for ($j=2; $j <=24 ; $j++) {
+        $sql2.="+dirt.h$j";
+    }
+    $sql2 .= ") as standard_dev,location from station inner join dirt on station.id=dirt.station_id where id='$stationid' and dirt.name='$typeofdirt' and
+    (dirt.dmy='$date' or dirt.dmy like '$year%' or dirt.dmy like '%$month%')";
+  }
 }
+
 else{
   echo "ton hpiame";
 };
 //echo $sql2;
 // excecute SQL statement
-$result = mysqli_query($link,$sql);
-$result2 =  mysqli_query($link,$sql2);
+$result = mysqli_query($conn,$sql);
+$result2 =  mysqli_query($conn,$sql2);
+//echo $sql2;
 
 // die if SQL statement failed
 if (!$result) {
   http_response_code(404);
-  die(mysqli_error($link));
+  die(mysqli_error($conn));
 }
 echo "[";
 // print results, insert id or affected row count
@@ -95,4 +121,5 @@ for ($i=0;$i<mysqli_num_rows($result);$i++) {
   echo "]";
 
 // close mysql connection
-mysqli_close($link);
+mysqli_close($conn);
+?>

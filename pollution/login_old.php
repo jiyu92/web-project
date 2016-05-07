@@ -1,6 +1,6 @@
 <?php
-
-$servername = "localhost";
+include 'connection.php';
+/*$servername = "localhost";
 $usernameDB = "root";
 $passwordDB = "";
 $dbname = "pollution";
@@ -11,7 +11,7 @@ $conn = mysqli_connect($servername, $usernameDB, $passwordDB);
 // Check connection
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
-}
+}*/
 mysqli_set_charset($conn, "utf8");
 ?><meta http-equiv="content-type" content="text/html;charset=utf-8" /><?php
 //create db automatically

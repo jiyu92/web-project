@@ -1,5 +1,6 @@
 <?php
-	$servername = "localhost";
+	include 'connection.php';
+	/*$servername = "localhost";
 	$username = "root";
 	$password = "";
 	$dbname = "pollution";
@@ -11,7 +12,7 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 	mysqli_set_charset($conn, "utf8");
-	
+*/
 	session_start();// Starting Session
 	// Storing Session
 	$user_check=$_SESSION['login_user'];
@@ -22,6 +23,6 @@
 	$login_session =$row['username'];
 	if(!isset($login_session)){
 	$conn->close(); // Closing Connection
-	
+
 	}
 ?>

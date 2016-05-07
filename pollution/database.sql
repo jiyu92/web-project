@@ -1,11 +1,15 @@
-﻿DROP DATABASE if exists pollution;
+﻿DROP DATABASE if exists `pollution`;
 CREATE DATABASE pollution DEFAULT CHARSET=utf8;
 USE pollution;
 
 CREATE TABLE IF NOT EXISTS user(
 	id int NOT NULL AUTO_INCREMENT,
-	username varchar(10) NOT NULL,
+	username varchar(255) NOT NULL,
 	password varchar(24) NOT NULL,
+	token varchar(255) NOT NULL,
+	api_key varchar(255) NOT NULL,
+	salt int NOT NULL,
+	is_admin boolean default NULL,
 PRIMARY KEY(id)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 

@@ -1,5 +1,6 @@
 
 <?php
+include 'connection.php';
 $target_dir = "C:\wamp\www\web-project\ ";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -34,13 +35,12 @@ if ($uploadOk == 0) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 
 
-$databasehost = "localhost";
-$databasename = "pollution";
+/*$servername = "localhost";
+$usernameDB = "root";
+$passwordDB = "";
+$dbname = "pollution";
 $databasetable = "dirt";
-$databaseusername="root";
-$databasepassword = "";
-$fieldseparator = ",";
-$lineseparator = "\n";
+
 try {
     $pdo = new PDO("mysql:host=$databasehost;dbname=$databasename",
         $databaseusername, $databasepassword,
@@ -53,6 +53,15 @@ try {
     die("database connection failed: ".$e->getMessage());
 }
 
+// Create connection
+$conn = mysqli_connect($servername, $usernameDB, $passwordDB, $dbname);
+// Check connection
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}*/
+
+$fieldseparator = ",";
+$lineseparator = "\n";
 $file= file_get_contents($target_file);
 $rows= explode($lineseparator, $file);
 foreach ($rows as $key => $row) {
@@ -61,10 +70,10 @@ foreach ($rows as $key => $row) {
   $dateshards = explode("-",$fields[0]);
   $newdate = $dateshards[2].'-'.$dateshards[1].'-'.$dateshards[0];
   $fields[0] = '"'.$newdate.'"';
-  $qs = "insert into $databasetable (dmy,h1,h2,h3,h4,h5,h6,h7,h8,h9,h10,h11,h12,h13,h14,h15,h16,h17,h18,h19,h20,h21,h22,h23,h24) values (".implode(',',$fields).")";
+  $qs = "insert into dirt (dmy,h1,h2,h3,h4,h5,h6,h7,h8,h9,h10,h11,h12,h13,h14,h15,h16,h17,h18,h19,h20,h21,h22,h23,h24) values (".implode(',',$fields).")";
   //echo $qs;
   if(count($fields)!=25)continue;
-  $pdo->exec($qs);
+  mysqli_query($conn,$qs);
 }
 
 /*create new column for the sum of the day
