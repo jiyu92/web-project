@@ -1,5 +1,6 @@
 <?php
 include 'connection.php';
+error_reporting(0);
 /*$servername = "localhost";
 $usernameDB = "root";
 $passwordDB = "";
@@ -13,14 +14,32 @@ if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
 */
+$response = array();
+function generate_uuid() {
+return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+	mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ),
+	mt_rand( 0, 0xffff ),
+	mt_rand( 0, 0x0fff ) | 0x4000,
+	mt_rand( 0, 0x3fff ) | 0x8000,
+	mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff )
+);
+}
 $username=$_GET['mail'];
 $password=$_GET['pass'];
 $sql = "select username, password, is_admin from user where username='$username' and password='$password'";
 $result=mysqli_query($conn,$sql);
-if(!$result){
-	echo "you entered wrong credentials or you're not registered";
+$result =mysqli_fetch_object($result);
+if(!$result->{'username'}){
+$response["message"]="failed";
 }
 else{
-	echo $sql;
+	$uuid=generate_uuid();
+	$up_querry = "update user set token='$uuid' where username='$username'";
+	mysqli_query($conn,$up_querry);
+	setcookie('token',$uuid,time() + (86400 * 7)); // 86400 = 1 day
+	$response["message"]="success";
+	$response["is_admin"]=$result->{'is_admin'};
 }
+	//var_dump($response);
+	echo json_encode($response);
 ?>

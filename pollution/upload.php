@@ -1,6 +1,7 @@
 
 <?php
 include 'connection.php';
+include 'authentication.php';
 $target_dir = "C:\wamp\www\web-project\ ";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;

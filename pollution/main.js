@@ -38,6 +38,7 @@ function submitHandler(event) {
    // Format the data to send
    var data = $(this).serialize();
    var action = $(this).find('[name="action"]').val();
+   var form = $(this);
 
    // Send a get request and save the request object
    var request = $.get(targetMap[action] + '?' + data);
@@ -46,14 +47,21 @@ function submitHandler(event) {
    // responseHandler
    request.success(responseHandler);
 
+   function responseHandler(response) {
+
+      console.log(response);
+      alert(response);
+     //form.find('p:has([type="submit"])').prepend("<div class='result-box'>"+JSON.stringify(response)+"</div>");
+     try{
+       response = JSON.parse(response);
+       if(response.is_admin) window.location.href='http://localhost/web-project/pollution/insert_utf.html';
+     }catch(e){}
+
+   }
+
 }
 
-function responseHandler(response) {
 
-   console.log(response);
-   alert(response);
-
-}
 
 /*
 setInterval(refresher, 2e3);

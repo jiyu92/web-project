@@ -1,5 +1,7 @@
 <?php
 include 'connection.php';
+include 'authentication.php';
+
 /*$db_server["host"] = "localhost"; //database server
 $db_server["username"] = "root"; // DB username
 $db_server["password"] = ""; // DB password
@@ -11,18 +13,20 @@ $mysql_con->query ('SET COLLATION_CONNECTION=utf8_general_ci');
 */
 
 $id = $_GET['id']	;
-$my_query = "DELETE from station WHERE id = '$id' ";//pws paizei
+$my_query = "DELETE from station WHERE id = '$id' ";
 
 
 
 $result = $conn->query($my_query);
 
-if (!$result)
+if (!$result){
 	die('Invalid query: ' . $conn->error);
-else
-	echo "Updated records: ".$conn->affected_rows;
+}
+else{
+	//echo "Updated records: ".$conn->affected_rows;
+	echo "The station with id ".$id." was deleted";
+}
 
-echo "The last id: ".$conn->insert_id;
 
 //$mysql_con->close;
 

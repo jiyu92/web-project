@@ -1,5 +1,7 @@
 <?php
 include 'connection.php';
+include 'authentication.php';
+
 /*$db_server["host"] = "localhost"; //database server
 $db_server["username"] = "root"; // DB username
 $db_server["password"] = ""; // DB password

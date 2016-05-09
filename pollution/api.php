@@ -1,5 +1,7 @@
 ﻿<?php
 include 'connection.php';
+include 'authentication.php';
+
 error_reporting(0);//na mhn mas prizei ta oumpala me ta warnings
  //$input = json_decode(file_get_contents('php://input'),true);
 

@@ -6,12 +6,14 @@ CREATE TABLE IF NOT EXISTS user(
 	id int NOT NULL AUTO_INCREMENT,
 	username varchar(255) NOT NULL,
 	password varchar(24) NOT NULL,
-	token varchar(255) NOT NULL,
-	api_key varchar(255) NOT NULL,
-	salt int NOT NULL,
+	token varchar(255) default NULL,
+	api_key varchar(255) default NULL,
+	salt int default NULL,
 	is_admin boolean default NULL,
 PRIMARY KEY(id)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+INSERT INTO user( username,password, is_admin) VALUES ("root","123",true);
 
 CREATE TABLE IF NOT EXISTS station(
 	id varchar(50) NOT NULL,

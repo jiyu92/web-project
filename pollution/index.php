@@ -4,6 +4,7 @@
   <title>Registration Panel</title>
   <link rel="shortcut icon" href="pol.jpg">
   <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="new_styles.css" rel="stylesheet" type="text/css">
   <script src="jquery.js"></script>
   <script src="main.js"></script>
   </head>
@@ -20,8 +21,8 @@
       </div> -->
       <form method="GET" action="">
         <input type="submit" name="button" value="Create DB">
-        <input type="hidden" name="action" value="create_db"
-      </from>
+        <input type="hidden" name="action" value="create_db">
+      </form>
       <div id="registration_panel">
         <h1>Registration</h1>
         <form method="GET" action="">
