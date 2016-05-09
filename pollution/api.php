@@ -121,7 +121,12 @@ for ($i=0;$i<mysqli_num_rows($result);$i++) {
     echo ($i>0?',':'').json_encode(mysqli_fetch_object($result2));
   }
   echo "]";
-
+//better solution 
+//$rows = array();
+//while($r = mysqli_fetch_assoc($result)) {
+  //  $rows[] = $r;
+//}
+//print json_encode($rows);
 // close mysql connection
 mysqli_close($conn);
 ?>
