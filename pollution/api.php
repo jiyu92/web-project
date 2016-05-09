@@ -125,6 +125,7 @@ for ($i=0;$i<mysqli_num_rows($result);$i++) {
 //$rows = array();
 //while($r = mysqli_fetch_assoc($result)) {
   //  $rows[] = $r;
+  
 //}
 //print json_encode($rows);
 // close mysql connection
