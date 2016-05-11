@@ -12,7 +12,8 @@ var targetMap = {
   update: "http://localhost/web-project/pollution/update.php",
   registration: "http://localhost/web-project/pollution/registration.php",
   login: "http://localhost/web-project/pollution/login_user.php",
-  create_db: "http://localhost/web-project/pollution/create_db.php"
+  create_db: "http://localhost/web-project/pollution/create_db.php",
+  drop_db: "http://localhost/web-project/pollution/drop_db.php"
 };
 
 // When the window finishes loading, execute the main function.
@@ -54,7 +55,13 @@ function submitHandler(event) {
      //form.find('p:has([type="submit"])').prepend("<div class='result-box'>"+JSON.stringify(response)+"</div>");
      try{
        response = JSON.parse(response);
-       if(response.is_admin) window.location.href='http://localhost/web-project/pollution/insert_utf.html';
+       if(response.is_admin){
+         window.location.href='http://localhost/web-project/pollution/insert_utf.html';
+       }
+       else{
+         $("#main").fadeTo(1000,0.1);
+         $("#user_logged").prepend("<div>"+JSON.stringify(response.api_key)+"</div>").show();;
+       }
      }catch(e){}
 
    }

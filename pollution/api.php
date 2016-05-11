@@ -117,15 +117,16 @@ if (!$result) {
 echo "[";
 // print results, insert id or affected row count
 for ($i=0;$i<mysqli_num_rows($result);$i++) {
-    echo ($i>0?',':'').json_encode(mysqli_fetch_object($result)).",";
-    echo ($i>0?',':'').json_encode(mysqli_fetch_object($result2));
+    echo ($i>0?',':'').json_encode(mysqli_fetch_object($result));
+    if($result2)
+    echo ($i>0?',':'').",".json_encode(mysqli_fetch_object($result2));
   }
   echo "]";
-//better solution 
+//better solution
 //$rows = array();
 //while($r = mysqli_fetch_assoc($result)) {
   //  $rows[] = $r;
-  
+
 //}
 //print json_encode($rows);
 // close mysql connection

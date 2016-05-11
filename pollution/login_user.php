@@ -26,7 +26,7 @@ return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
 }
 $username=$_GET['mail'];
 $password=$_GET['pass'];
-$sql = "select username, password, is_admin from user where username='$username' and password='$password'";
+$sql = "select username, password, is_admin, api_key from user where username='$username' and password='$password'";
 $result=mysqli_query($conn,$sql);
 $result =mysqli_fetch_object($result);
 if(!$result->{'username'}){
@@ -39,6 +39,8 @@ else{
 	setcookie('token',$uuid,time() + (86400 * 7)); // 86400 = 1 day
 	$response["message"]="success";
 	$response["is_admin"]=$result->{'is_admin'};
+	if(!$response["is_admin"])
+		$response["api_key"]=$result->{'api_key'};
 }
 	//var_dump($response);
 	echo json_encode($response);

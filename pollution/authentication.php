@@ -1,7 +1,8 @@
 <?php
+error_reporting(0);
 if($_COOKIE['token']){
   $cookie = $_COOKIE['token'];
-  $sql = "select id from user where token='$cookie'";
+  $sql = "select * from user where token='$cookie'";
   $result = mysqli_query($conn,$sql);
   $result =mysqli_fetch_object($result);
   if($result->{'id'}){
@@ -11,7 +12,13 @@ if($_COOKIE['token']){
 }
 if(!$auth)
   foreach (getallheaders() as $name => $value) {
-      echo "$name: $value\n";
+    if($name!="X-Api-Key") continue;
+    $sql= "select * from user where api_key = '$value'";
+    $result = mysqli_query($conn,$sql);
+    $result =mysqli_fetch_object($result);
+    if($result->{'id'}){
+      $auth=$result;
+    }
   }
 
 if(!$auth)

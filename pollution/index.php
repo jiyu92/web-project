@@ -19,10 +19,7 @@
           <input type="submit" name="action" value="Enter as Admin">
         </form>
       </div> -->
-      <form method="GET" action="">
-        <input type="submit" name="button" value="Create DB">
-        <input type="hidden" name="action" value="create_db">
-      </form>
+
       <div id="registration_panel">
         <h1>Registration</h1>
         <form method="GET" action="">
@@ -41,7 +38,6 @@
       </div>
     </div>
     <div id="user_logged" style="display: none;">
-      <input type="button" onclick="alert('You pressed a button, here\'s a potato!')" value="Get Api key!">
     </div>
   </body>
 </html>

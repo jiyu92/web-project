@@ -15,6 +15,14 @@ PRIMARY KEY(id)
 
 INSERT INTO user( username,password, is_admin) VALUES ("root","123",true);
 
+CREATE TABLE IF NOT EXISTS api_requests(
+	name varchar(255),
+	request_type varchar(20),
+	number_of_reqs int,
+	api_key_of_req varchar(255),
+FOREIGN KEY (api_key_of_req) REFERENCES user(api_key)
+) ENGINE = InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
 CREATE TABLE IF NOT EXISTS station(
 	id varchar(50) NOT NULL,
 	name varchar(20) NOT NULL,

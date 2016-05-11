@@ -21,5 +21,6 @@ foreach ($shards as $key => $value) {
 	if(!$value) continue;
 	mysqli_query($conn, $value.';');
 }
+echo "Database $dbname created!";
 
 ?>
