@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS api_requests(
 	request_type varchar(20),
 	number_of_reqs int,
 	api_key_of_req varchar(255),
-FOREIGN KEY (api_key_of_req) REFERENCES user(api_key)
+	PRIMARY KEY (api_key_of_req)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS station(
