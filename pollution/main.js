@@ -15,16 +15,26 @@ var targetMap = {
   create_db: "http://localhost/web-project/pollution/create_db.php",
   drop_db: "http://localhost/web-project/pollution/drop_db.php"
 };
+var stats_url = "http://localhost/web-project/pollution/stats.php";
 
 // When the window finishes loading, execute the main function.
 // It's not a problem that main is defined later in this file (@see JS hoisting)
 $(window).ready(main);
+$(window).ready(load_stats);
+
+function load_stats(){
+  $("#stats").load(stats_url);
+  var refreshId = setInterval(function()
+        {
+            $(this).load(stats_url);
+        }, 9000);
+
+}
 
 // Out client program
 function main() {
 
-   // When the form with id show_station is submited, the submitHandler function
-   // is called.
+
    $('form:not([method="post"])').submit(submitHandler);
 
 }
