@@ -1,0 +1,138 @@
+<!DOCTYPE html >
+  
+
+<body>
+
+
+<title>station</title>
+
+<form method="GET" action="http://localhost/web-project/pollution/api.php">
+	
+	<h2>Επιλογή προς εμφάνιση δεδομένων σταθμού</h2>
+     <link href="style.css" rel="stylesheet" type="text/css">
+		<h2>Στατιστικά δεδομένα ρύπων</h2>
+     <link href="style.css" rel="stylesheet" type="text/css">
+	<p>Type of dirt: <input type="text" name="type_of_dirt" size="20">
+	<p>Station Id: <input type="text" name="station_id" size="20">
+	<p>Date: <input type="text" name="date" size="20">
+	<p>Month: <input type="text" name="month" size="20">
+	<p>Year: <input type="text" name="year" size="20">
+	<p><input type="submit" value="Εμφάνιση πληροφοριών!" name="B1"></p>
+	<input type="hidden" name="action" value="show_stats">
+</form>
+
+	
+	
+	
+  </body>
+
+  <head>
+  
+  
+  
+  <img id="msgIcon" src="main.jpg" style="width:20%;height:80%;"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>PHP/MySQL & Google Maps Example</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB37xCEC-dH_S6TyjoDkYvFMVAq59rxNO0"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var customIcons = {
+      station: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
+      }
+    };
+
+    function load() {
+      var map = new google.maps.Map(document.getElementById("map"), {
+        center: new google.maps.LatLng(37.58,23.43),
+        zoom: 6,
+        mapTypeId: 'roadmap'
+      });
+      var infoWindow = new google.maps.InfoWindow;
+
+      // metatropi sql query se xml doc
+      downloadUrl("demo.php", function(data) {
+        var xml = data.responseXML;
+        var station = xml.documentElement.getElementsByTagName("station");
+        for (var i = 0; i < station.length; i++) {
+         
+          var name = station[i].getAttribute("name");
+          var point = new google.maps.LatLng(
+              parseFloat(station[i].getAttribute("lng")),
+              parseFloat(station[i].getAttribute("lat")));
+          var html = "<b>" + name + "</b> <br/>" + point ;
+          var icon = customIcons[station] || {};
+		   
+          var marker = new google.maps.Marker({
+            map: map,
+            position: point,
+            icon: icon.icon
+          });
+		  
+		  var heatmap = new google.maps.visualization.HeatmapLayer({
+			data: point,
+			map: map
+			});
+          bindInfoWindow(marker, map, infoWindow,heatmap, html);
+        }
+      });
+    }
+
+    function bindInfoWindow(marker, map, infoWindow, html) {
+      google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.setContent(html);
+        infoWindow.open(map, marker);
+      });
+    }
+
+    function downloadUrl(url, callback) {
+      var request = window.ActiveXObject ?
+          new ActiveXObject('Microsoft.XMLHTTP') :
+          new XMLHttpRequest;
+
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          request.onreadystatechange = doNothing;
+          callback(request, request.status);
+        }
+      };
+
+      request.open('GET', url, true);
+      request.send(null);
+    }
+
+    function doNothing() {}
+
+    //]]>
+
+  </script>
+
+  </head>
+
+  <body onload="load()">
+    <div id="map" style="width: 900px; height: 300px"></div>
+	
+	
+	
+	</script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB37xCEC-dH_S6TyjoDkYvFMVAq59rxNO0&libraries=visualization&callback=initMap">
+    </script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>In - MySQL</title>
+<link rel="shortcut icon" href="pol.jpg">
+<link href="style.css" rel="stylesheet" type="text/css">
+<script src="jquery.js"></script>
+<script src="main.js"></script>
+</head>
+  
+  
+  
+  
+  
+</html>
