@@ -24,10 +24,10 @@ $(window).ready(load_stats);
 
 function load_stats(){
   $("#stats").load(stats_url);
-  var refreshId = setInterval(function()
+  setInterval(function()
         {
-            $(this).load(stats_url);
-        }, 9000);
+            $("#stats").load(stats_url);
+        }, 100);
 
 }
 
