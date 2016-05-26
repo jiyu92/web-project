@@ -13,6 +13,7 @@ $result3 = mysqli_query($conn,$sql3);
 
 echo "[";
 // print results, insert id or affected row count
+//noob tropos, den douleue h multi_query :P
 for ($i=0;$i<mysqli_num_rows($result);$i++) {
     echo ($i>0?',':'').json_encode(mysqli_fetch_object($result));
     echo ($i>0?',':'').json_encode(mysqli_fetch_object($result2));

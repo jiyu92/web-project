@@ -1,19 +1,7 @@
 <?php
 include 'connection.php';
 error_reporting(0);
-/*$servername = "localhost";
-$usernameDB = "root";
-$passwordDB = "";
-$dbname = "pollution";
-
-
-// Create connection
-$conn = mysqli_connect($servername, $usernameDB, $passwordDB, $dbname);
-// Check connection
-if ($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
-}
-*/
+//apodosh api-key kai cookie stous xrhstes pou kanoun login
 $response = array();
 function generate_uuid() {
 return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',

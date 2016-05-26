@@ -11,10 +11,6 @@ $method = $_SERVER['REQUEST_METHOD'];
 $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
 $input = json_decode(file_get_contents('php://input'),true);
 
-/* connect to the mysql database
-$conn = mysqli_connect('localhost', 'root', '', 'pollution');
-mysqli_set_charset($conn,'utf8');
-*/
 // retrieve the table and key from the path
 $table = preg_replace('/[^a-z0-9_]+/i','',array_shift($request));
 $key = array_shift($request)+0;
@@ -33,25 +29,12 @@ for ($i=0;$i<count($columns);$i++) {
   $set.=($values[$i]===null?'NULL':'"'.$values[$i].'"');
 }
 
-/* create SQL based on HTTP method
-switch ($method) {
-  case 'GET':
-    $sql = "select * from station"; break;
-  case 'PUT':
-    $sql = "update `$table` set $set where id=$key"; break;
-  case 'POST':
-
-   	$sql = "select location,$hour from station inner join dirt on station.id=dirt.station_id where id='$stationid' and dirt.name='$typeofdirt' and dirt.dmy='$date'"; break;
-  case 'DELETE':
-    $sql = "delete `$table` where id=$key"; break;
-}*/
-
 //getting data from forms
 $typeofdirt=$_GET['type_of_dirt'];
 $stationid=$_GET['station_id'];
 $hour='h'.$_GET['hour'];
 $date=$_GET['date'];
-$month='-'.$_GET['month'].'-';//den anagnwrizei oti milame gia mhna xwris tis paules
+$month='-'.$_GET['month'].'-';//formarisma ths eisodou wste naa tairiazei sta protypa tou dataset
 $year=$_GET['year'].'-';
 
 //create sql for each request on the API

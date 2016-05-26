@@ -17,11 +17,10 @@ var targetMap = {
 };
 var stats_url = "http://localhost/web-project/pollution/stats.php";
 
-// When the window finishes loading, execute the main function.
-// It's not a problem that main is defined later in this file (@see JS hoisting)
+// When the window finishes loading, execute the main and the load_stats func
 $(window).ready(main);
 $(window).ready(load_stats);
-
+//asygxronh enhmerwsh twn statistikwn gia ton admin
 function load_stats(){
   $("#stats").load(stats_url);
   setInterval(function()
@@ -31,7 +30,6 @@ function load_stats(){
 
 }
 
-// Out client program
 function main() {
 
 
@@ -39,10 +37,10 @@ function main() {
 
 }
 
-// Will handle the submition of the form
+// O sumbmition handler
 function submitHandler(event) {
 
-   // Prevent window from reloading
+   // Oi formes kanoun reload, den to theloume auto ara preventDefault & stopPropagation
    event.preventDefault();
    event.stopPropagation();
 
@@ -54,8 +52,7 @@ function submitHandler(event) {
    // Send a get request and save the request object
    var request = $.get(targetMap[action] + '?' + data);
 
-   // When we successfully receive a response, execute the function
-   // responseHandler
+   //  o responseHandler
    request.success(responseHandler);
 
    function responseHandler(response) {
@@ -66,7 +63,7 @@ function submitHandler(event) {
      try{
        response = JSON.parse(response);
        if(response.is_admin){
-         window.location.href='http://localhost/web-project/pollution/insert_utf.html';
+         window.location.href='http://localhost/web-project/pollution/insert_utf.html';//redirect sto html gia eisagwgh dedomenwn sth bash an eisai admin
        }
        else{
          $("#main").fadeTo(1000,0.1);
@@ -77,20 +74,3 @@ function submitHandler(event) {
    }
 
 }
-
-
-
-/*
-setInterval(refresher, 2e3);
-
-function refresher(){
-
-   var request = $.get(API_TARGET + '?action=refresh_count');
-
-   request.success(function(response){
-      var counterElement = $('#count');
-      counterElement.html(response);
-   });
-
-}
-*/

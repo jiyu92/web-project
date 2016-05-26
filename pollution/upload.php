@@ -6,17 +6,6 @@ $target_dir = "C:\wamp\www\web-project\ ";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-
-/*$db_server["host"] = "localhost"; //database server
-$db_server["username"] = "root"; // DB username
-$db_server["password"] = ""; // DB password
-$db_server["database"] = "pollution";// database name
-
-$mysql_con = mysqli_connect($db_server["host"], $db_server["username"], $db_server["password"], $db_server["database"]);
-$mysql_con->query ('SET CHARACTER SET utf8');
-$mysql_con->query ('SET COLLATION_CONNECTION=utf8_general_ci');
-*/
-// Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
 
         $uploadOk = 1;
@@ -34,33 +23,7 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-
-
-/*$servername = "localhost";
-$usernameDB = "root";
-$passwordDB = "";
-$dbname = "pollution";
-$databasetable = "dirt";
-
-try {
-    $pdo = new PDO("mysql:host=$databasehost;dbname=$databasename",
-        $databaseusername, $databasepassword,
-        array(
-            PDO::MYSQL_ATTR_LOCAL_INFILE => true,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        )
-    );
-} catch (PDOException $e) {
-    die("database connection failed: ".$e->getMessage());
-}
-
-// Create connection
-$conn = mysqli_connect($servername, $usernameDB, $passwordDB, $dbname);
-// Check connection
-if ($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
-}*/
-
+//parsing twn csv kai topothetsh dedomenwn sta swsta columns
 $fieldseparator = ",";
 $lineseparator = "\n";
 $file= file_get_contents($target_file);
@@ -77,21 +40,6 @@ foreach ($rows as $key => $row) {
   mysqli_query($conn,$qs);
 }
 
-/*create new column for the sum of the day
-$sqlexec= "select (h1";
-for ($i=2; $i <=24 ; $i++) {
-  $sqlexec.="+h$i";
-}
-$sqlexec .= ") from dirt";
-$sum = $pdo->exec($sqlexec);
-$sql = "update dirt set sum = '$sum' where sum is null";
-$createcol = $pdo->exec($sql);
-
-/*$affectedRows = $pdo->exec("
-    LOAD DATA LOCAL INFILE ".$pdo->quote($target_file)." INTO TABLE $databasetable
-      FIELDS TERMINATED BY ".$pdo->quote($fieldseparator)."
-      LINES TERMINATED BY ".$pdo->quote($lineseparator));
-*/
 echo "Loaded a total of ".count($rows)." records from this csv file.\n";
 
 

@@ -10,9 +10,10 @@ if($_COOKIE['token']){
   }
 
 }
-if(!$auth)
-  foreach (getallheaders() as $name => $value) {
-    if($name!="X-Api-Key") continue;
+//dhmiourgia statistikwn gia tous dev's kai ta api key tous
+if(!$auth)//an den eisai registered sth bash..
+  foreach (getallheaders() as $name => $value) {//lambanoume tous headers
+    if($name!="X-Api-Key") continue;//an den broume api-key proxwrame sthn epomenh epanalhpsh
     $sql= "select * from user where api_key = '$value'";
     $result = mysqli_query($conn,$sql);
     $result =mysqli_fetch_object($result);

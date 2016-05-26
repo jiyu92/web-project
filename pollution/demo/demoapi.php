@@ -1,4 +1,7 @@
 <?php
+/*
+To api tou dev, to opoio leitourgei ws proxy metaksy tou demo client kai tou demo server
+*/
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $_POST['xget']);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
