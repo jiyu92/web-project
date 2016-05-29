@@ -1,0 +1,71 @@
+body {
+    background-color: #d0e4fe;
+}
+
+
+input[type=text] {
+	
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('toolbar_find.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+
+
+p {
+    font-family: "Times New Roman", Times, serif;
+}
+
+
+
+
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+	color : #A80000  
+}
+
+
+.top {
+    position: absolute;
+    top: 200px;
+    right: 768px;
+    font-size: 30px;
+	color : #F36C8C 
+}
+
+
+
+
+input[type=submit] {
+padding: 10px 20px 11px !important;
+font-size: 21px !important;
+background-color: #F36C8C;
+font-weight: bold;
+text-shadow: 1px 1px #F36C8C;
+color: #ffffff;
+border-radius: 100px;
+-moz-border-radius: 100px;
+-webkit-border-radius: 100px;
+border: 1px solid #F36C8C;
+cursor: pointer;
+box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+
+}
+
