@@ -3,6 +3,8 @@ body {
 }
 
 
+
+
 input[type=text] {
 	
     width: 130px;
@@ -41,13 +43,12 @@ p {
 
 
 .top {
-    position: absolute;
-    top: 200px;
-    right: 768px;
-    font-size: 30px;
-	color : #F36C8C 
+  background-color:#F36C8C;
+    color:white;
+    text-align:center;
+    padding:20px;
+	font-size: 50px
 }
-
 
 
 
