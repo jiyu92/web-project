@@ -67,7 +67,7 @@ function submitHandler(event) {
        }
        else{
          $("#main").fadeTo(1000,0.1);
-         $("#user_logged").prepend("<div>"+JSON.stringify(response.api_key)+"</div>").show();;
+         $("#user_logged").prepend("<div>"+JSON.stringify(response.api_key)+"</div>").show();
        }
      }catch(e){}
 

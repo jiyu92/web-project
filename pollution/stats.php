@@ -11,6 +11,7 @@ $result2 = mysqli_query($conn,$sql2);
 $result3 = mysqli_query($conn,$sql3);
 //$result = mysqli_fetch_object($result)
 
+/*
 echo "[";
 // print results, insert id or affected row count
 //noob tropos, den douleue h multi_query :P
@@ -20,6 +21,25 @@ for ($i=0;$i<mysqli_num_rows($result);$i++) {
     echo ($i>0?',':'').json_encode(mysqli_fetch_object($result3));
   }
   echo "]";
+  */
+
+  $reqs = array();
+  $order = array();
+  $count = array();
+  while($r = mysqli_fetch_assoc($result)) {
+      $reqs[] = $r;
+  }
+  print json_encode($reqs);
+
+  while($r = mysqli_fetch_assoc($result2)) {
+      $order[] = $r;
+  }
+  print json_encode($order);
+
+  while($r = mysqli_fetch_assoc($result3)) {
+      $count[] = $r;
+  }
+  print json_encode($count);
 
 
 ?>
